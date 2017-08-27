@@ -12,7 +12,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t zuul .
-      - docker tag eureka:latest 491590790276.dkr.ecr.us-west-2.amazonaws.com/zuul:latest      
+      - docker tag zuul:latest 491590790276.dkr.ecr.us-west-2.amazonaws.com/zuul:latest      
   post_build:
     commands:
       - echo Build completed on `date`
