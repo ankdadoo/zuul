@@ -7,6 +7,8 @@ phases:
       - $(aws ecr get-login --region us-west-2)
       - echo Pulling maven image...
       - docker pull maven:3.3-jdk-8
+      - mvn clean
+      - mvn package
   build:
     commands:
       - echo Build started on `date`
