@@ -4,6 +4,9 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - sudo apt-get install maven
       - $(aws ecr get-login --region us-west-2)
       - echo Pulling maven image...
       - docker pull maven:3.3-jdk-8
