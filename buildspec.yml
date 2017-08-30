@@ -4,20 +4,9 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - sudo apt-get install software-properties-common python-software-properties
-      - sudo add-apt-repository ppa:git-core/ppa
-      - sudo apt-get update
-      - sudo apt-get install git
-      - apt-get update -y
-      - add-apt-repository -y ppa:openjdk-r/ppa
-      - sudo apt-get update -y
-      - apt-get install -y openjdk-8-jdk
-      - sudo apt-get install maven
       - $(aws ecr get-login --region us-west-2)
       - echo Pulling maven image...
       - docker pull maven:3.3-jdk-8
-      - mvn clean
-      - mvn package
   build:
     commands:
       - echo Build started on `date`
